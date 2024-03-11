@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="HttpRequestUtil">
+    <output-path>$PROJECT_DIR$/out/artifacts/HttpRequestUtil</output-path>
+    <root id="archive" name="HttpRequestUtil.jar">
+      <element id="dir-copy" path="$PROJECT_DIR$/target/classes/github/auuuu4/utils" />
+    </root>
+  </artifact>
+</component>
