@@ -4,7 +4,7 @@
 
   <groupId>io.github.auuuu4</groupId>
   <artifactId>HttpRequestUtil</artifactId>
-  <version>1.0-RELEASE</version>
+  <version>1.0.1-RELEASE</version>
   <packaging>jar</packaging>
 
 
