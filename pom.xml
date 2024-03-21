@@ -17,6 +17,11 @@
       <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
     </license>
   </licenses>
+  <scm>
+    <url>https://github.com/auuuu4/HttpRequestUtil</url>
+    <connection>git@github.com:auuuu4/HttpRequestUtil.git</connection>
+  </scm>
+
   <developers>
     <developer>
       <name>Hu Liang</name>
@@ -51,6 +56,8 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+
   <build>
 
     <plugins>
@@ -71,7 +78,6 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
         <version>3.3.0</version>
-
         <executions>
           <execution>
             <id>attach-sources</id>

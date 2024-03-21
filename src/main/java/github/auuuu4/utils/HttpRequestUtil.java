@@ -68,11 +68,12 @@ public class HttpRequestUtil {
     */
     public static String doGet(String url, Map<String,Object> headers,Map<String,Object> params){
         HttpGet get = new HttpGet(url);
-        addParamsToRequest(get,params);
-        addHeadersToRequest(get,headers);
         // 设置超时时间
         RequestConfig config = RequestConfig.custom().setSocketTimeout(60000).setConnectTimeout(60000).build();
         get.setConfig(config);
+        addParamsToRequest(get,params);
+        addHeadersToRequest(get,headers);
+
 
         try (CloseableHttpResponse response = httpClient.execute(get)){
             int statusCode = response.getStatusLine().getStatusCode();
@@ -138,11 +139,12 @@ public class HttpRequestUtil {
 
     public static String doPost(String url,Map<String,Object> params,Map<String,Object> headers) {
         HttpPost post = new HttpPost(url);
-        addHeadersToRequest(post,headers);
-        addParamsToRequest(post,params);
         // 设置超时时间
         RequestConfig config = RequestConfig.custom().setSocketTimeout(60000).setConnectTimeout(60000).build();
         post.setConfig(config);
+        addHeadersToRequest(post,headers);
+        addParamsToRequest(post,params);
+
         try (CloseableHttpResponse response = httpClient.execute(post)){
             logger.info(EntityUtils.toString(post.getEntity(),"utf-8"));
 
@@ -198,9 +200,9 @@ public class HttpRequestUtil {
     */
     private static void addHeadersToRequest(HttpRequestBase request, Map<String, Object> headers){
         if(headers == null) return ;
-        if(!headers.containsKey("Accept"))
+        if(!headers.containsKey("Accept") && !headers.containsKey("accept"))
             headers.put("Accept", "application/json");
-        if(!headers.containsKey("Content-Type"))
+        if(!headers.containsKey("Content-Type") && !headers.containsKey("content-type"))
             headers.put("Content-Type", "application/json");
         for(String key: headers.keySet()){
             request.addHeader(key, headers.get(key).toString());
